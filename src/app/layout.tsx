@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { baseSEO } from "@/lib/seo";
 import "./globals.css";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-gray-900 text-gray-100">
         {children}
-      </body>
+      </body> 
+        <GoogleAnalytics gaId="G-M6JN9NK7BT" />
     </html>
   );
 }
