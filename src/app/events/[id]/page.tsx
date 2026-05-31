@@ -217,9 +217,9 @@ export default async function EventPage({ params }: EventPageProps) {
               </svg>
               Back to events
             </Link>
-            {event.slug && (
+            {event.markets && event.markets.length > 0 && event.markets[0].slug ? (
               <a
-                href={`https://polymarket.com/market/${event.slug}`}
+                href={`https://polymarket.com/market/${event.markets[0].slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold transition"
@@ -229,7 +229,19 @@ export default async function EventPage({ params }: EventPageProps) {
                 </svg>
                 Open in Polymarket
               </a>
-            )}
+            ) : event.slug ? (
+              <a
+                href={`https://polymarket.com/event/${event.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold transition"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M7 17L17 7M7 7h10v10" />
+                </svg>
+                Open in Polymarket
+              </a>
+            ) : null}
           </div>
           <h1 className="text-4xl font-bold text-white">{event.title || 'Untitled Event'}</h1>
           {event.subtitle && <p className="text-slate-400 mt-2">{event.subtitle}</p>}
