@@ -33,6 +33,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-gray-900`}
     >
       <head>
+        <meta name="google-site-verification" content="n3NoOYuHQCpp-fqgK9XYNwCMz5nRCflnZS8_eRe0hr0" />
         <meta name="theme-color" content="#111827" />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL} />
       </head>
